@@ -50,7 +50,7 @@ namespace Xamarin.Forms.Platform.Android
 			var coordinator = LayoutInflater.FromContext(context).Inflate(Resource.Layout.FlyoutContent, null);
 			var recycler = coordinator.FindViewById<RecyclerView>(Resource.Id.flyoutcontent_recycler);
 			var appBar = coordinator.FindViewById<AppBarLayout>(Resource.Id.flyoutcontent_appbar);
-			var appBarFooter = coordinator.FindViewById<AppBarLayout>(Resource.Id.flyoutcontent_footer_appbar);
+			var appBarFooter = coordinator.FindViewById<BottomNavigationView>(Resource.Id.flyoutcontent_footer);
 
 			_rootView = coordinator;
 
