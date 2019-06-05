@@ -1,30 +1,118 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Shell xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Xamarin.Forms.Sandbox.ShellPage"
-             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
-             ios:Page.UseSafeArea="true">
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:Xamarin.Forms.Sandbox"
+       x:Class="Xamarin.Forms.Sandbox.ShellPage">
 
     <Shell.FlyoutHeader>
         <StackLayout>
             <Button Text="I am a Button"  />
         </StackLayout>
     </Shell.FlyoutHeader>
+    
+    
     <Shell.FlyoutFooter>
-        <StackLayout>
+        <StackLayout BackgroundColor="Red">
             <Label Text="I am a Footer" />
         </StackLayout>
     </Shell.FlyoutFooter>
-    <ShellContent>
-        <ContentPage>
-            <Shell.TitleView>
-                <StackLayout>
-                    <Button Text="I am a Button"  />
-                </StackLayout>
-            </Shell.TitleView>
-            <StackLayout>
-                <Button Text="I am a Button"  />
-            </StackLayout>
-        </ContentPage>
-    </ShellContent>
+
+    <FlyoutItem Title="hello">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 2">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 3">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 2">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 3">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 2">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 3">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 2">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+    <FlyoutItem Title="hello 3">
+        <Tab>
+            <ShellContent>
+                <views:MainPage />
+            </ShellContent>
+        </Tab>
+    </FlyoutItem>
+
+
+
 </Shell>
