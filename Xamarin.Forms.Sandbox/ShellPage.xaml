@@ -10,6 +10,11 @@
             <Button Text="I am a Button"  />
         </StackLayout>
     </Shell.FlyoutHeader>
+    <Shell.FlyoutFooter>
+        <StackLayout>
+            <Label Text="I am a Footer" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
     <ShellContent>
         <ContentPage>
             <Shell.TitleView>

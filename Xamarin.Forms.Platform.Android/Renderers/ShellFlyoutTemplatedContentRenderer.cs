@@ -25,6 +25,7 @@ namespace Xamarin.Forms.Platform.Android
         IShellContext _shellContext;
         bool _disposed;
         HeaderContainer _headerView;
+		AView _footerView;
         AView _rootView;
         Drawable _defaultBackground;
 
@@ -49,6 +50,7 @@ namespace Xamarin.Forms.Platform.Android
 			var coordinator = LayoutInflater.FromContext(context).Inflate(Resource.Layout.FlyoutContent, null);
 			var recycler = coordinator.FindViewById<RecyclerView>(Resource.Id.flyoutcontent_recycler);
 			var appBar = coordinator.FindViewById<AppBarLayout>(Resource.Id.flyoutcontent_appbar);
+			var appBarFooter = coordinator.FindViewById<AppBarLayout>(Resource.Id.flyoutcontent_footer_appbar);
 
 			_rootView = coordinator;
 
@@ -66,8 +68,20 @@ namespace Xamarin.Forms.Platform.Android
                 ScrollFlags = AppBarLayout.LayoutParams.ScrollFlagScroll
             };
             appBar.AddView(_headerView);
+						
+			_footerView = new ContainerView(context, ((IShellController)shellContext.Shell).FlyoutFooter)
+			{
+				MatchWidth = true
+			};
+			_footerView.LayoutParameters = new AppBarLayout.LayoutParams(LP.MatchParent, LP.WrapContent)
+			{
+				ScrollFlags = AppBarLayout.LayoutParams.ScrollFlagScroll,
+				Gravity = GravityFlags.Bottom,
+			};
 
-            var adapter = new ShellFlyoutRecyclerAdapter(shellContext, OnElementSelected);
+			appBarFooter.AddView(_footerView);
+
+			var adapter = new ShellFlyoutRecyclerAdapter(shellContext, OnElementSelected);
             recycler.SetPadding(0, (int)context.ToPixels(20), 0, 0);
             recycler.SetClipToPadding(false);
             recycler.SetLayoutManager(new LinearLayoutManager(context, (int)Orientation.Vertical, false));
@@ -173,6 +187,7 @@ namespace Xamarin.Forms.Platform.Android
                 _defaultBackground = null;
                 _rootView = null;
                 _headerView = null;
+				_footerView = null;
                 _shellContext = null;
                 _disposed = true;
             }

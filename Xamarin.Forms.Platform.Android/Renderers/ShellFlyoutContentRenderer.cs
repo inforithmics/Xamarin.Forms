@@ -18,6 +18,7 @@ namespace Xamarin.Forms.Platform.Android
 		#endregion IShellFlyoutContentRenderer
 
 		AView _headerView;
+		AView _footerView;
 		readonly Dictionary<IMenuItem, Element> _lookupTable = new Dictionary<IMenuItem, Element>();
 		IShellContext _shellContext;
 		bool _disposed;
@@ -37,7 +38,13 @@ namespace Xamarin.Forms.Platform.Android
 				MatchWidth = true
 			};
 
+			_footerView = new ContainerView(context, ((IShellController)shellContext.Shell).FlyoutFooter)
+			{
+				MatchWidth = true
+			};
+
 			AddHeaderView(_headerView);
+			AddView(_footerView);
 		}
 
 		bool IOnNavigationItemSelectedListener.OnNavigationItemSelected(IMenuItem menuItem)
