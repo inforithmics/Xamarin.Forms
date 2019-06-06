@@ -12,7 +12,10 @@
     
     
     <Shell.FlyoutFooter>
-        <StackLayout BackgroundColor="Red">
+        <StackLayout BackgroundColor="Orange">
+            <Label Text="I am a Footer" />
+            <Label Text="More content" />
+            <Label Text="Did it work?" />
             <Label Text="I am a Footer" />
             <Label Text="MOre content" />
             <Label Text="Did it work?" />
@@ -107,13 +110,16 @@
         </Tab>
     </FlyoutItem>
 
-    <FlyoutItem Title="hello 3">
+    <FlyoutItem Title="End">
         <Tab>
             <ShellContent>
                 <views:MainPage />
             </ShellContent>
         </Tab>
     </FlyoutItem>
+
+    <ShellContent Title="Final Page"
+                  ContentTemplate="{DataTemplate views:MainPage}" />
 
 
 
