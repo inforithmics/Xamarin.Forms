@@ -14,6 +14,8 @@
     <Shell.FlyoutFooter>
         <StackLayout BackgroundColor="Red">
             <Label Text="I am a Footer" />
+            <Label Text="MOre content" />
+            <Label Text="Did it work?" />
         </StackLayout>
     </Shell.FlyoutFooter>
 
