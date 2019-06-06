@@ -50,7 +50,7 @@ namespace Xamarin.Forms.Platform.Android
 			var coordinator = LayoutInflater.FromContext(context).Inflate(Resource.Layout.FlyoutContent, null);
 			var recycler = coordinator.FindViewById<RecyclerView>(Resource.Id.flyoutcontent_recycler);
 			var appBar = coordinator.FindViewById<AppBarLayout>(Resource.Id.flyoutcontent_appbar);
-			var appBarFooter = coordinator.FindViewById<BottomNavigationView>(Resource.Id.flyoutcontent_footer);
+			var appBarFooter = coordinator.FindViewById<FrameLayout>(Resource.Id.flyoutcontent_footer);
 
 			_rootView = coordinator;
 
@@ -82,12 +82,12 @@ namespace Xamarin.Forms.Platform.Android
 			appBarFooter.AddView(_footerView);
 
 			var adapter = new ShellFlyoutRecyclerAdapter(shellContext, OnElementSelected);
-            recycler.SetPadding(0, (int)context.ToPixels(20), 0, 0);
-            recycler.SetClipToPadding(false);
-            recycler.SetLayoutManager(new LinearLayoutManager(context, (int)Orientation.Vertical, false));
-            recycler.SetAdapter(adapter);
+			recycler.SetPadding(0, (int)context.ToPixels(20), 0, 0);
+			recycler.SetClipToPadding(false);
+			recycler.SetLayoutManager(new LinearLayoutManager(context, (int)Orientation.Vertical, false));
+			recycler.SetAdapter(adapter);
 
-            var metrics = context.Resources.DisplayMetrics;
+			var metrics = context.Resources.DisplayMetrics;
             var width = Math.Min(metrics.WidthPixels, metrics.HeightPixels);
 
 			using (TypedValue tv = new TypedValue())
