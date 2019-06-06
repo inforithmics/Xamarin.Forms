@@ -82,9 +82,11 @@ namespace Xamarin.Forms.Platform.Android
 			appBarFooter.AddView(_footerView);
 
 			var adapter = new ShellFlyoutRecyclerAdapter(shellContext, OnElementSelected);
-			var layoutParams = (ViewGroup.MarginLayoutParams)recycler.LayoutParameters;
+
 			appBarFooter.Measure((int)MeasureSpecMode.Unspecified, (int)MeasureSpecMode.Unspecified);
+			var layoutParams = (ViewGroup.MarginLayoutParams)recycler.LayoutParameters;
 			layoutParams.BottomMargin = appBarFooter.MeasuredHeight;
+
 			recycler.SetPadding(0, (int)context.ToPixels(20), 0, 0);			
 			recycler.SetClipToPadding(false);
 			recycler.SetLayoutManager(new LinearLayoutManager(context, (int)Orientation.Vertical, false));
