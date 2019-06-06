@@ -82,7 +82,10 @@ namespace Xamarin.Forms.Platform.Android
 			appBarFooter.AddView(_footerView);
 
 			var adapter = new ShellFlyoutRecyclerAdapter(shellContext, OnElementSelected);
-			recycler.SetPadding(0, (int)context.ToPixels(20), 0, 0);
+			var layoutParams = (ViewGroup.MarginLayoutParams)recycler.LayoutParameters;
+			appBarFooter.Measure((int)MeasureSpecMode.Unspecified, (int)MeasureSpecMode.Unspecified);
+			layoutParams.BottomMargin = appBarFooter.MeasuredHeight;
+			recycler.SetPadding(0, (int)context.ToPixels(20), 0, 0);			
 			recycler.SetClipToPadding(false);
 			recycler.SetLayoutManager(new LinearLayoutManager(context, (int)Orientation.Vertical, false));
 			recycler.SetAdapter(adapter);
@@ -108,7 +111,7 @@ namespace Xamarin.Forms.Platform.Android
             UpdateFlyoutBackgroundColor();
         }
 
-        protected void OnElementSelected(Element element)
+		protected void OnElementSelected(Element element)
         {
             ((IShellController)_shellContext.Shell).OnFlyoutItemSelected(element);
         }
